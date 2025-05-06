@@ -101,6 +101,7 @@ export default function Calculation() {
           </Typography>
           <TextField
             type="text"
+            inputMode="numeric"
             fullWidth
             value={numText}
             onChange={(e) => setNumText(formatNumber(e.target.value))}
@@ -110,7 +111,7 @@ export default function Calculation() {
 
         <Button
           variant="contained"
-          onClick={calculate}
+          onClick={handleSubmit(calculate)}
           sx={{
             mt: 3,
             width: '100%',
