@@ -165,6 +165,7 @@ const ResultDisplay = ({ results }: { results: CalculationResult }) => (
   <Box
     sx={{
       mt: 5,
+      mb: 6,
       width: '100%',
       maxWidth: 500,
       backgroundColor: '#f8f8f8',
