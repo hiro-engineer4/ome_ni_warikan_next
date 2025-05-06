@@ -100,12 +100,11 @@ export default function Calculation() {
             合計金額
           </Typography>
           <TextField
-            type="text"
-            inputMode="numeric"
+            type="number"
             fullWidth
             value={numText}
             onChange={(e) => setNumText(formatNumber(e.target.value))}
-            sx={{ backgroundColor: '#fff', borderRadius: 2 }}
+            inputProps={{ inputMode: 'numeric' }}
           />
         </Box>
 
