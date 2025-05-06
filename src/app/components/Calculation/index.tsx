@@ -21,16 +21,10 @@ export default function Calculation() {
   const [numText, setNumText] = useState('')
   const [results, setResults] = useState<CalculationResult | null>(null)
 
-  const formatNumber = (val: string) => {
-    const numeric = val.replace(/,/g, '').replace(/[^0-9]/g, '')
-    if (numeric === '') return ''
-    return parseInt(numeric).toLocaleString()
-  }
-
   const calculate = () => {
     const ome = getValues('omePeopleNum') || 0
     const sukuname = getValues('sukunamePeopleNum') || 0
-    const total = parseInt(numText.replace(/,/g, '')) || 0
+    const total = parseInt(numText) || 0
     const all = ome + sukuname
 
     if (all === 0 || total === 0) {
@@ -103,8 +97,8 @@ export default function Calculation() {
             type="number"
             fullWidth
             value={numText}
-            onChange={(e) => setNumText(formatNumber(e.target.value))}
-            inputProps={{ inputMode: 'numeric' }}
+            onChange={(e) => setNumText(e.target.value)}
+            inputProps={{ inputMode: 'numeric', min: 0 }}
           />
         </Box>
 
