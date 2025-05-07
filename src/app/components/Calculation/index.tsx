@@ -68,11 +68,13 @@ export default function Calculation() {
         <InputBlock
           label="多めに払う人"
           icon="/fat.png"
+          placeholder="人数を入力してください"
           register={register('omePeopleNum', { valueAsNumber: true })}
         />
         <InputBlock
           label="少なめに払う人"
           icon="/ojigi.png"
+          placeholder="人数を入力してください"
           register={register('sukunamePeopleNum', { valueAsNumber: true })}
         />
 
@@ -97,6 +99,7 @@ export default function Calculation() {
             type="number"
             fullWidth
             value={numText}
+            placeholder="金額を入力してください"
             onChange={(e) => setNumText(e.target.value)}
             inputProps={{ inputMode: 'numeric', min: 0 }}
           />
@@ -134,10 +137,12 @@ const InputBlock = ({
   label,
   icon,
   register,
+  placeholder,
 }: {
   label: string
   icon: string
   register: ReturnType<UseFormRegister<FormValues>>
+  placeholder?: string
 }) => (
   <Box sx={{ mb: 3 }}>
     <Typography
@@ -154,6 +159,7 @@ const InputBlock = ({
     <TextField
       type="number"
       fullWidth
+      placeholder={placeholder}
       inputProps={{ min: 0 }}
       {...register}
       sx={{ backgroundColor: '#fff', borderRadius: 2 }}
